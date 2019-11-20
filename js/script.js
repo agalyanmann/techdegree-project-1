@@ -3,13 +3,7 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-/*** 
- * `quotes` array 
-***/
+//Array of quotes to be randomly generated. 
 var quotes = [
   {
     quote: 'It is impossible for a man to learn what he thinks he already knows.',
@@ -35,18 +29,16 @@ var quotes = [
   }
 ];
 
-/***
- * `getRandomQuote` function
-***/
+
+//The getRandomQuote function will generate a random index position based on the passed array length to generate a random output. In this case a random quote.
 
 function getRandomQuote (array) {
-  var indexNum = Math.floor(Math.random() * array.length);
+  var indexNum = Math.floor(Math.random() * array.length); //when using random number generators with arrrays leave off the additional "+1" due to array begining at a value of "0".
   return array[indexNum]
 }
 
-/***
- * `printQuote` function
-***/
+//The printQuote function builds an html string to display the quotes to the index.html page. This function will also conditionally check if the the selected...
+//...object contains any citations or year properties. 
 
 function printQuote() {
   var html = ' ';
@@ -60,21 +52,14 @@ function printQuote() {
     html += '<span class="year">' + quoteObject.year + '</span>';
   }
   html += '</p>';
-  //document.write(html);
-  return html; 
+  document.getElementById("quote-box").innerHTML = html; //this points the function to the main "quote-box" <div>.
 }
-document.write(printQuote());
+
+
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE OF CODE BELOW!!
 ***/
 
-document.getElementsourceId('load-quote').addEventListener("click", printQuote, false);
-
-
-// if (quoteObject.hasOwnProperty('citation')) {
-//   html += '<span class="citation">' + quoteObject.citation + '</span>';
-// }
-// if (quoteObject.hasOwnProperty('year')) {
-//   html += '<span class="year">' + quoteObject.year + '</span>';
-// }
+document.getElementById('load-quote').addEventListener("click", printQuote, false); //had to update code, due to orginal "getElementSourceID" would not allow button to function. Updated to "getElementById" function. 
