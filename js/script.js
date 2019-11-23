@@ -34,15 +34,16 @@ var quotes = [
   }
 ];
 
-var colors = ['#FFFF00', '#DF7401', '#00FFFF', '#D358F7', '#F78181' ];
+//Array of colors to be randomly generated 
+var colors = ['#DBA901', '#DF7401', '#0B615E', '#D358F7', '#F78181' ];
 
 //The getRandomQuote function will generate a random index position based on the passed array length to generate a random output. In this case a random quote.
-
 function getRandomQuote (array) {
-  var indexNum = Math.floor(Math.random() * array.length); //when using random number generators with arrrays leave off the additional "+1" due to array begining at a value of "0".
+  var indexNum = Math.floor(Math.random() * array.length); //when using random number generators with arrrays leave off the additional "+1" due to array begining at a value of "0".;
   return array[indexNum]
 }
 
+//The getRandomColor function will generate a random index position based on the passed array length to generate a random output. In this cas a random color for the background. 
 function getRandomColor (array) {
   var indexNum = Math.floor(Math.random() * array.length);
   return array[indexNum]
@@ -50,12 +51,14 @@ function getRandomColor (array) {
 
 //The printQuote function builds an html string to display the quotes to the index.html page. This function will also conditionally check if the the selected...
 //...object contains any citations or year properties. 
-
 function printQuote() {
+  setInterval(printQuote, 20000); //will auto generate the printQuote function every 30 seconds after the user clicks the show another quote button.
   var html = ' ';
   var quoteObject = getRandomQuote(quotes);
+  var colorIndex = getRandomColor(colors); 
   html += '<p class="quote">' + quoteObject.quote + '</p>';
   html += '<p class="source">' + quoteObject.source;
+  // Conditional checks for Citations, Year, & Tag
   if (quoteObject.citation) {
     html += '<span class="citation">' + quoteObject.citation + '</span>';
   }
@@ -67,8 +70,9 @@ function printQuote() {
   }
   html += '</p>';
   document.getElementById("quote-box").innerHTML = html; //this points the function to the main "quote-box" <div>.
+  document.getElementById("main").style.backgroundColor = colorIndex; // points toward the body to change color. 
+  return quoteObject;
 }
-
 
 
 
