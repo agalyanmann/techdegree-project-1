@@ -7,33 +7,44 @@ project 1 - A Random Quote Generator
 var quotes = [
   {
     quote: 'It is impossible for a man to learn what he thinks he already knows.',
-    source: 'Epictetus'
+    source: 'Epictetus',
+    tag: 'Philosophy'
   },
   {
     quote: 'There is only one good, knowledge, and one evil, ignorance',
-    source: 'Socrates'
+    source: 'Socrates',
+    tag: 'Philosophy'
   },
   {
     quote: 'We are what we repeatedly do. Excellence, then, is not an act, but a habit',
-    source: 'Aristotle'
+    source: 'Aristotle',
+    tag: 'Philosophy'
   },
   {
     quote: 'Going that one more round when you don\'t think you can, that\'s what makes all the difference in your life.',
     source: 'Rocky Balboa',
     citation: 'Rocky IV',
-    year: 'November 27, 1985'
+    year: 'November 27, 1985',
+    tag: 'Movies'
   },
   {
     quote: 'To create more positive results in your life, replace \'if only\' with \'next time\'',
-    source: 'Unknown'
+    source: 'Unknown',
+    tag: 'Motivational'
   }
 ];
 
+var colors = ['#FFFF00', '#DF7401', '#00FFFF', '#D358F7', '#F78181' ];
 
 //The getRandomQuote function will generate a random index position based on the passed array length to generate a random output. In this case a random quote.
 
 function getRandomQuote (array) {
   var indexNum = Math.floor(Math.random() * array.length); //when using random number generators with arrrays leave off the additional "+1" due to array begining at a value of "0".
+  return array[indexNum]
+}
+
+function getRandomColor (array) {
+  var indexNum = Math.floor(Math.random() * array.length);
   return array[indexNum]
 }
 
@@ -51,9 +62,13 @@ function printQuote() {
   if (quoteObject.year) {
     html += '<span class="year">' + quoteObject.year + '</span>';
   }
+  if (quoteObject.tag) {
+    html += '<p class="tag">' + quoteObject.tag;
+  }
   html += '</p>';
   document.getElementById("quote-box").innerHTML = html; //this points the function to the main "quote-box" <div>.
 }
+
 
 
 
