@@ -52,7 +52,6 @@ function getRandomColor (array) {
 //The printQuote function builds an html string to display the quotes to the index.html page. This function will also conditionally check if the the selected...
 //...object contains any citations or year properties. 
 function printQuote() {
-  setInterval(printQuote, 20000); //will auto generate the printQuote function every 30 seconds after the user clicks the show another quote button.
   var html = ' ';
   var quoteObject = getRandomQuote(quotes);
   var colorIndex = getRandomColor(colors); 
@@ -74,7 +73,7 @@ function printQuote() {
 }
 
 
-
+setInterval(printQuote, 20000); //will auto generate the printQuote function every 30 seconds after the user clicks the show another quote button.
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE OF CODE BELOW!!
