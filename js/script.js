@@ -71,7 +71,6 @@ function printQuote() {
   html += '</p>';
   document.getElementById("quote-box").innerHTML = html; //this points the function to the main "quote-box" <div>.
   document.getElementById("main").style.backgroundColor = colorIndex; // points toward the body to change color. 
-  return quoteObject;
 }
 
 
