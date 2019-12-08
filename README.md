@@ -1,2 +1,2 @@
-# Techdegree Project 1
- Quote Generator
+# techdegree-project-1
+ List Pagination and Filtering
