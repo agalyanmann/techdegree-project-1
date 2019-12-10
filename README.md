@@ -1,2 +1,2 @@
 # techdegree-project-1
- List Pagination and Filtering
+ Random Quote Generator with a self timer. 
