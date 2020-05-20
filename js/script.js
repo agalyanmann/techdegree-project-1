@@ -35,7 +35,7 @@ var quotes = [
 ];
 
 //Array of colors to be randomly generated 
-var colors = ['#DBA901', '#DF7401', '#0B615E', '#D358F7', '#F78181' ];
+var colors = ['#EF476F', '#FFD166', '#06D6A0', '#118AB2', '#073B4C' ];
 
 //The getRandomQuote function will generate a random index position based on the passed array length to generate a random output. In this case a random quote.
 function getRandomQuote (array) {
